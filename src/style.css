@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #ffefb3;
+  --secondary: #013e37;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  margin: 0 auto;
+}
+
+#navbar.scrolled {
+  width: 60%;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  #navsm {
+    transform: translateX(400px);
+    transition: all 0.2s ease-in-out;
+  }
+
+  #navsm.actived {
+    transform: translateX(100px);
+    background-color: aqua;
+    text-align: center;
+    justify-content: center;
+    background-color: aqua;
+    z-index: 999;
+    position: absolute;
+    height: 100vh;
+    width: 300px;
+  }
+
+  #hamburger.toggle {
+    display: none;
+  }
+}

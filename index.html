@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <main class="h-[2000px]">
+      <nav>
+        <div
+          class="hidden w-full font-mono font-bold p-4 sm:flex justify-center items-center gap-20 text-[#013e37] border"
+          id="navbar"
+        >
+          <a href="#" class="hover:text-[#594579]">Home</a>
+          <a href="#">Education</a>
+          <a href="#">About Me</a>
+        </div>
+
+        <img
+          src="src/assets/hamburger.png"
+          alt="hamburger"
+          class="sm:hidden w-7 float-end mr-5 mt-5"
+          id="hamburger"
+        />
+
+        <div class="flex sm:hidden" id="navsm">
+          <a href="">#</a>
+          <a href="">#</a>
+          <a href="">#</a>
+        </div>
+      </nav>
+
+      <!-- Home Section Start -->
+      <section class="h-screen pt-14.5 flex justify-center items-center">
+        <div class="w-[900px] pt-8 mx-auto flex flex-col ml-16 text-justify">
+          <p class="text-[24px] font-mono text-[#013e37]">
+            Hi There! Im Johannes
+          </p>
+          <h1 class="text-[64px]">Web Developer</h1>
+          <p class="text-[24px] font-mono text-[#013e37]">
+            Mahasiswa | Programmer | Web Developer
+          </p>
+          <div class="mt-5 flex gap-6">
+            <a
+              href="#"
+              class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              >Instagram</a
+            >
+            <a
+              href="#"
+              class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              >Github</a
+            >
+            <a
+              href="#"
+              class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+        <div>
+          <img
+            src="src/assets/johannes.png"
+            alt="johannes"
+            class="w-100 mr-48 mb-20"
+          />
+        </div>
+      </section>
+      <!-- Home Section End -->
+    </main>
+
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>
