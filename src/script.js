@@ -36,6 +36,8 @@ var typed3 = new Typed("#subtitle", {
   strings: [" Programmer", " Human", " Web Developer"],
   typeSpeed: 20,
   backSpeed: 20,
-  smartBackspace: true, // this is a default
+  smartBackspace: true,
   loop: true,
 });
+
+// Make Animation For Home Section
