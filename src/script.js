@@ -1,5 +1,8 @@
 const hamburgerMenu = document.getElementById("hamburger");
 const navbarMobile = document.getElementById("navsm");
+const homeNav = document.getElementById("home");
+const skillsNav = document.getElementById("skills");
+const aboutNav = document.getElementById("about");
 
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("navbar");

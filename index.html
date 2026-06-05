@@ -8,15 +8,15 @@
     <title>Portfolio</title>
   </head>
   <body>
-    <main class="h-[2000px]">
+    <main class="h-500">
       <nav>
         <div
           class="hidden w-full font-mono font-bold p-4 sm:flex justify-center items-center gap-20 text-[#013e37] border"
           id="navbar"
         >
-          <a href="#" class="hover:text-[#594579]">Home</a>
-          <a href="#">Education</a>
-          <a href="#">About Me</a>
+          <a href="#home" class="hover:text-[#594579] nav-item">Home</a>
+          <a href="#skills" class="nav-item">Skills</a>
+          <a href="#about" id="about" class="nav-item">About Me</a>
         </div>
 
         <img
@@ -27,15 +27,18 @@
         />
 
         <div class="flex sm:hidden" id="navsm">
-          <a href="">#</a>
+          <a href="#">#</a>
           <a href="">#</a>
           <a href="">#</a>
         </div>
       </nav>
 
       <!-- Home Section Start -->
-      <section class="h-screen pt-14.5 flex justify-center items-center">
-        <div class="w-[900px] pt-8 mx-auto flex flex-col ml-16 text-justify">
+      <section
+        class="h-screen pt-14.5 flex justify-center items-center"
+        id="home"
+      >
+        <div class="w-225 pt-8 mx-auto flex flex-col ml-16 text-justify">
           <p class="text-[24px] font-mono text-[#013e37]">
             Hi There! Im Johannes
           </p>
@@ -70,6 +73,15 @@
         </div>
       </section>
       <!-- Home Section End -->
+
+      <!-- Skills Start -->
+      <section id="skills" class="pt-20 bg-[#013e37] h-screen">
+        <h1 class="text-[24px] text-center text-[#ffefb3]">Skills I Have</h1>
+        <div>
+          <img src="src/assets/javascript.svg" alt="" />
+        </div>
+      </section>
+      <!-- Skills End -->
     </main>
 
     <script type="module" src="/src/script.js"></script>

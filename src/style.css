@@ -5,10 +5,19 @@
   --secondary: #013e37;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--primary);
 }
 
+/* Navbar Start */
 #navbar {
   position: fixed;
   top: 0;
@@ -19,6 +28,7 @@ body {
 }
 
 #navbar.scrolled {
+  background-color: rgb(255, 239, 179, 0.7);
   width: 60%;
   left: 0;
   right: 0;
@@ -28,6 +38,8 @@ body {
   margin: 0 auto;
   margin-top: 10px;
 }
+
+/* Navbar End */
 
 @media screen and (max-width: 480px) {
   #navsm {
