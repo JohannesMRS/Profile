@@ -39,46 +39,110 @@
         id="home"
       >
         <div class="w-225 pt-8 mx-auto flex flex-col ml-16 text-justify">
+          <p class="text-[24px] font-mono text-[#013e37]" id="myName"></p>
+          <h1
+            class="text-[64px]"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+            data-aos-delay="700"
+          >
+            Web Developer
+          </h1>
           <p class="text-[24px] font-mono text-[#013e37]">
-            Hi There! Im Johannes
-          </p>
-          <h1 class="text-[64px]">Web Developer</h1>
-          <p class="text-[24px] font-mono text-[#013e37]">
-            Mahasiswa | Programmer | Web Developer
+            Mahasiswa |
+            <span
+              class="text-[24px] font-mono text-[#013e37]"
+              id="subtitle"
+            ></span>
           </p>
           <div class="mt-5 flex gap-6">
             <a
               href="#"
               class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              data-aos="fade-up"
+              data-aos-delay="700"
               >Instagram</a
             >
             <a
               href="#"
               class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              data-aos="fade-up"
+              data-aos-delay="800"
               >Github</a
             >
             <a
               href="#"
               class="border border-[#013e37] p-1.5 hover:text-[#ffefb3] hover:bg-[#013e37] duration-200"
+              data-aos="fade-up"
+              data-aos-delay="900"
               >LinkedIn</a
             >
           </div>
+          <p class="mt-10 italic" id="quotes"></p>
         </div>
-        <div>
+        <div data-aos="zoom-in">
           <img
             src="src/assets/johannes.png"
             alt="johannes"
-            class="w-100 mr-48 mb-20"
+            class="w-120 mr-52 mb-20"
           />
         </div>
       </section>
       <!-- Home Section End -->
 
       <!-- Skills Start -->
-      <section id="skills" class="pt-20 bg-[#013e37] h-screen">
-        <h1 class="text-[24px] text-center text-[#ffefb3]">Skills I Have</h1>
-        <div>
-          <img src="src/assets/javascript.svg" alt="" />
+      <section
+        id="skills"
+        class="pt-20 bg-[#013e37] h-screen flex flex-col justify-center items-center"
+      >
+        <div class="flex justify-center items-center gap-12">
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img
+              src="src/assets/javascript.svg"
+              alt="javascript"
+              class="w-28"
+            />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/php.png" alt="php" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/python.png" alt="python" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/c++.png" alt="C++" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/css-3.png" alt="css" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/html-5.png" alt="html" class="w-28" />
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center gap-12 mt-14">
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img
+              src="src/assets/TailwindCSS.png"
+              alt="TailwindCSS"
+              class="w-28"
+            />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/Laravel.png" alt="Laravel" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/Bootstrap.png" alt="bootstrap" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/mysql.png" alt="mysql" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/Git.png" alt="git" class="w-28" />
+          </div>
+          <div class="p-3 shadow-[0px_1px_10px_5px_rgba(0,0,0,0.2)]">
+            <img src="src/assets/GitHub.png" alt="github" class="w-28" />
+          </div>
         </div>
       </section>
       <!-- Skills End -->

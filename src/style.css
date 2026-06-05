@@ -41,25 +41,5 @@ body {
 
 /* Navbar End */
 
-@media screen and (max-width: 480px) {
-  #navsm {
-    transform: translateX(400px);
-    transition: all 0.2s ease-in-out;
-  }
-
-  #navsm.actived {
-    transform: translateX(100px);
-    background-color: aqua;
-    text-align: center;
-    justify-content: center;
-    background-color: aqua;
-    z-index: 999;
-    position: absolute;
-    height: 100vh;
-    width: 300px;
-  }
-
-  #hamburger.toggle {
-    display: none;
-  }
+@keyframes fadeIn {
 }
