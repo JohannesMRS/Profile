@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #ffefb3;
-  --secondary: #013e37;
+  --primary: rgb(255, 239, 179);
+  --secondary: rgb(1, 62, 55);
 }
 
 body::-webkit-scrollbar {
@@ -41,5 +41,17 @@ body {
 
 /* Navbar End */
 
-@keyframes fadeIn {
+/* Skills Start */
+
+#skills div div img {
+  filter: grayscale(100%);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
+
+#skills div div img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Skills End */
