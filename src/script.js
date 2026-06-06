@@ -21,7 +21,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("load", () => {
   AOS.init({
     duration: 1200,
-    delay: 600,
+    delay: 100,
   });
 });
 
