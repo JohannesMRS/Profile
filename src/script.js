@@ -34,10 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 var typed3 = new Typed("#subtitle", {
   strings: [" Programmer", " Human", " Web Developer"],
-  typeSpeed: 20,
+  typeSpeed: 100,
   backSpeed: 20,
   smartBackspace: true,
   loop: true,
+  startDelay: 200,
 });
 
 // Make Animation For Home Section
