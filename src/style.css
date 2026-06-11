@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --primary: rgb(255, 239, 179);
-  --secondary: rgb(1, 62, 55);
+  --primary: #ffefb3;
+  --secondary: #013e37;
 }
 
 body::-webkit-scrollbar {
