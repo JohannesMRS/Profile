@@ -43,6 +43,10 @@ body {
 
 /* Skills Start */
 
+#skills, #home, #project{
+  background-color: var(--primary);
+}
+
 #skills div div img {
   filter: grayscale(100%);
   transition: all 0.2s ease-in-out;
