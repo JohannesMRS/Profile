@@ -8,6 +8,18 @@
   --secondary: #013e37;
 }
 
+body{
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.dark-mode{
+  color: var(--primary);
+  background-color: var(--secondary);
+}
+
+
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -44,7 +56,8 @@ body {
 
 #dark-mode{
   background-color: red;
-  top: 0;
+  z-index: 999;
+  left: 10px;
   position: fixed;
 }
 /* Navbar End */

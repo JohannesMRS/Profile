@@ -9,9 +9,10 @@ const homeNav = document.getElementById("home");
 const skillsNav = document.getElementById("skills");
 const aboutNav = document.getElementById("about");
 const darkModeBtn = document.getElementById("dark-mode-btn"); 
+const body = document.body;
 
 darkModeBtn.addEventListener("click", ()=>{
-  alert("Clicked")
+  body.classList.toggle('dark-mode')
 })
 
 window.addEventListener("scroll", () => {
