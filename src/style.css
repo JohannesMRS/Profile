@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --primary: #ffefb3;
@@ -39,6 +42,11 @@ body {
   margin-top: 10px;
 }
 
+#dark-mode{
+  background-color: red;
+  top: 0;
+  position: fixed;
+}
 /* Navbar End */
 
 /* Skills Start */
@@ -46,6 +54,10 @@ body {
 #skills, #home, #project{
   background-color: var(--primary);
 }
+
+/* #dark-mode{
+
+} */
 
 #skills div div img {
   filter: grayscale(100%);

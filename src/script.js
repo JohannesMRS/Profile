@@ -10,6 +10,10 @@ const skillsNav = document.getElementById("skills");
 const aboutNav = document.getElementById("about");
 const darkModeBtn = document.getElementById("dark-mode-btn"); 
 
+darkModeBtn.addEventListener("click", ()=>{
+  alert("Clicked")
+})
+
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("navbar");
   if (window.scrollY > 50) {
@@ -42,4 +46,5 @@ var typed3 = new Typed("#subtitle", {
   startDelay: 200,
 });
 
-// Make Animation For Home Section
+
+
