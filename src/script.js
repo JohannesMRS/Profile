@@ -3,7 +3,7 @@
  
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  
-  /* ---------- TERMINAL ---------- */
+  // Terminal
   var termOutput = document.getElementById('term-output');
   var termInput = document.getElementById('term-input');
   var termBox = document.getElementById('terminal');
@@ -40,7 +40,7 @@
     ['initializing profile.sh ...', 'text-[var(--text-faint)]'],
     ['loading identity module ... done', 'text-[var(--text-faint)]'],
     ['NAME: Johannes Mario Rafael Sibarani', 'text-[var(--amber)] glow-text'],
-    ['ROLE: Full-Stack Developer (backend-focused)', 'text-[var(--text)]'],
+    ['ROLE: Backend Developer', 'text-[var(--text)]'],
     ["type 'help' to see available commands.", 'text-[var(--text-dim)]']
   ];
  
@@ -114,7 +114,7 @@
  
   termBox.addEventListener('click', function(){ termInput.focus(); });
  
-  /* ---------- SKILLS TREE ---------- */
+  // Skills Tree
   var skillData = [
     {
       key: 'frameworks',
@@ -198,7 +198,7 @@
   }
   buildTree();
  
-  /* ---------- STACK LAYERS ---------- */
+  // Stack Layers
   var layerData = [
     { name: 'Client Interface', detail: 'TailwindCSS, Bootstrap — styling whatever the framework below renders.' },
     { name: 'Application Layer', detail: 'Laravel, Gin, Express.js — the APIs and services that hold business logic.' },
@@ -218,7 +218,7 @@
     layersEl.appendChild(row);
   });
  
-  /* ---------- CONTACT FORM (client-side only) ---------- */
+  // Contact Form (client-side only)
   var form = document.getElementById('contact-form');
   var status = document.getElementById('form-status');
   form.addEventListener('submit', function(e){

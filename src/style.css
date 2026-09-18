@@ -24,15 +24,20 @@
   :root[data-theme="dark"]{ --bg:#0a0b08; }
  
   *{ box-sizing:border-box; }
-  html,body{ overflow-x:hidden; }
+  html,body{ overflow-x:clip; }
   body{
     background:var(--bg);
     color:var(--text);
     font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
     line-height:1.6;
   }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
   .mono{ font-family:'JetBrains Mono', ui-monospace, monospace; }
- 
+  
   /* subtle scanline + vignette, non-distracting */
   .crt::before{
     content:"";
