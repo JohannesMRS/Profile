@@ -1,132 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <title>Johannes | Portfolio</title>
-  </head>
-  <body class="transition-colors duration-500 font-sans selection:bg-[#013e37] selection:text-[#ffefb3]">
-    
-    <div id="dark-mode" class="fixed bottom-6 right-6 z-50">
-      <button id="dark-mode-btn" class="w-12 h-12 rounded-full bg-[#013e37] text-[#ffefb3] dark:bg-[#ffefb3] dark:text-[#013e37] shadow-lg flex justify-center items-center cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 text-xl">
-        🌙
-      </button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Johannes Mario Rafael Sibarani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="fixed inset-0 h-[560px] grid-bg z-0"></div>
+ 
+<!-- NAV -->
+<header class="relative z-10 border-b border-[var(--border)]">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+    <span class="mono text-sm text-[var(--text-dim)]">jmrs<span class="text-[var(--amber)]">@</span>portfolio<span class="text-[var(--text-faint)]">:~$</span></span>
+    <nav class="mono text-sm hidden sm:flex gap-6 text-[var(--text-dim)]">
+      <a href="#about" class="hover:text-[var(--amber)]">about</a>
+      <a href="#skills" class="hover:text-[var(--amber)]">skills</a>
+      <a href="#stack" class="hover:text-[var(--amber)]">stack</a>
+      <a href="#contact" class="hover:text-[var(--amber)]">contact</a>
+    </nav>
+  </div>
+</header>
+ 
+<!-- HERO: interactive terminal -->
+<section id="hero" class="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 pt-14 sm:pt-20 pb-16">
+  <div class="window rounded-sm overflow-hidden">
+    <div class="window-bar flex items-center gap-2 px-4 py-3">
+      <span class="dot" style="background:var(--danger)"></span>
+      <span class="dot" style="background:#ffbd2e"></span>
+      <span class="dot" style="background:var(--ok)"></span>
+      <span class="mono text-xs text-[var(--text-faint)] ml-3">bash</span>
     </div>
+    <div id="terminal" class="mono text-[13px] sm:text-sm p-5 sm:p-7 h-[420px] sm:h-[460px] overflow-y-auto scrollbar-thin" aria-live="polite">
+      <div id="term-output" class="space-y-1"></div>
+      <div class="flex items-start gap-2 mt-1">
+        <span class="text-[var(--amber)] shrink-0">visitor@johannes.dev:~$</span>
+        <input id="term-input" type="text" autocomplete="off" spellcheck="false"
+          class="bg-transparent outline-none flex-1 text-[var(--text)] caret-[var(--amber)]"
+          aria-label="Terminal command input" />
+      </div>
+    </div>
+  </div>
+  <p class="mono text-xs text-[var(--text-faint)] mt-3 px-1">
+    type <span class="text-[var(--amber)]">help</span> in the terminal above — or just scroll.
+  </p>
+</section>
+ 
+<!-- ABOUT: man page style -->
+<section id="about" class="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20">
+  <div class="mono text-xs text-[var(--text-faint)] mb-2">man 1 johannes</div>
+  <div class="space-y-6">
+    <div>
+      <h2 class="mono text-[var(--amber)] tracking-tight text-sm">NAME</h2>
+      <p class="mono mt-1 text-[var(--text)]">johannes mario rafael sibarani — backend developer</p>
+    </div>
+    <div>
+      <h2 class="mono text-[var(--amber)] tracking-tight text-sm">SYNOPSIS</h2>
+      <p class="mono mt-1 text-[var(--text)]">developer <span class="text-[var(--text-dim)]">--layer=backend --also=frontend --runtime=linux|windows</span></p>
+    </div>
+    <div>
+      <h2 class="mono text-[var(--amber)] tracking-tight text-sm">DESCRIPTION</h2>
+      <p class="mt-2 text-[var(--text)] max-w-[62ch]">
+        Johannes builds things from the database up. Comfortable writing a Laravel API in the
+        morning, a Gin microservice in the afternoon, and pointing both at the same PostgreSQL
+        instance without losing track of which one owns the migration.
+      </p>
+      <p class="mt-3 text-[var(--text-dim)] max-w-[62ch]">
+        His work spans five languages and four database engines, but the habit underneath all
+        of it is the same: keep the system legible, commit often, and never guess at what a
+        query is actually doing.
+      </p>
+    </div>
+    <div>
+      <h2 class="mono text-[var(--amber)] tracking-tight text-sm">SEE ALSO</h2>
+      <p class="mt-1 text-[var(--text-dim)]">skills(5), stack(7), contact(1)</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- SKILLS: interactive file tree -->
+<section id="skills" class="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 py-14 sm:py-20 border-t border-[var(--border)]">
+  <div class="mono text-xs text-[var(--text-faint)] mb-6">~/skills $ tree -L 2</div>
+  <div class="grid md:grid-cols-[280px_1fr] gap-5">
+    <nav class="window rounded-sm p-2" aria-label="Skill categories">
+      <ul id="tree-list" class="mono text-sm" role="listbox"></ul>
+    </nav>
+    <div class="window rounded-sm p-5 sm:p-6 min-h-[280px]" id="tree-detail" aria-live="polite">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</section>
+ 
+<!-- STACK: architecture diagram -->
+<section id="stack" class="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 py-14 sm:py-20 border-t border-[var(--border)]">
+  <div class="mono text-xs text-[var(--text-faint)] mb-6">~/stack $ cat architecture.yml</div>
+  <p class="text-[var(--text-dim)] max-w-[60ch] mb-8">
+    Hover or tap a layer to see what runs there. Everything below sits on the same two
+    operating systems, tied together with one version control habit.
+  </p>
+  <div id="layers" class="space-y-3"></div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact" class="relative z-10 max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-24 border-t border-[var(--border)]">
+  <div class="mono text-xs text-[var(--text-faint)] mb-6">~$ curl -X POST /contact</div>
+  <h2 class="mono text-2xl sm:text-3xl text-[var(--text)] mb-8">Open a channel.</h2>
+ 
+  <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mono text-sm mb-10">
+    <div class="flex justify-between border-b border-[var(--border)] py-2">
+      <span class="text-[var(--text-faint)]">email</span>
+      <a href="mailto:sibaranijohannes8@gmail.com" id="email-link">sibaranijohannes8@gmail.com</a>
+    </div>
+    <div class="flex justify-between border-b border-[var(--border)] py-2">
+      <span class="text-[var(--text-faint)]">github</span>
+      <a href="https://github.com/JohannesMRS" target="_blank" rel="noopener">github.com/JohannesMRS</a>
+    </div>
+    <div class="flex justify-between border-b border-[var(--border)] py-2">
+      <span class="text-[var(--text-faint)]">location</span>
+      <span class="text-[var(--text)]">Indonesia</span>
+    </div>
+    <div class="flex justify-between border-b border-[var(--border)] py-2">
+      <span class="text-[var(--text-faint)]">status</span>
+      <span class="text-[var(--ok)]">open to work</span>
+    </div>
+  </div>
+ 
+  <form id="contact-form" class="window rounded-sm p-5 sm:p-6 space-y-4">
+    <div>
+      <label for="f-name" class="mono text-xs text-[var(--text-faint)] block mb-1">from</label>
+      <input id="f-name" required type="text" class="w-full bg-[var(--bg-raised)] border border-[var(--border)] rounded-sm px-3 py-2 mono text-sm text-[var(--text)] outline-none focus:border-[var(--amber-dim)]" placeholder="your name">
+    </div>
+    <div>
+      <label for="f-message" class="mono text-xs text-[var(--text-faint)] block mb-1">message</label>
+      <textarea id="f-message" required rows="4" class="w-full bg-[var(--bg-raised)] border border-[var(--border)] rounded-sm px-3 py-2 mono text-sm text-[var(--text)] outline-none focus:border-[var(--amber-dim)]" placeholder="say something"></textarea>
+    </div>
+    <button type="submit" class="mono text-sm px-4 py-2 border border-[var(--amber-dim)] text-[var(--amber)] rounded-sm hover:bg-[rgba(255,176,0,0.08)] transition-colors">
+      send transmission
+    </button>
+    <p id="form-status" class="mono text-xs text-[var(--text-faint)] h-4"></p>
+  </form>
+</section>
+ 
+<footer class="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 py-8 text-center">
+  <p class="mono text-xs text-[var(--text-faint)]">© 2026 johannes mario rafael sibarani <span class="cursor-blink text-[var(--amber)]">_</span></p>
+</footer>
 
-    <header>
-      <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
-        <a href="#home" class="font-mono font-black text-xl tracking-wider">JHN.</a>
-        
-        <div class="hidden md:flex justify-center items-center gap-12 font-mono font-medium text-sm">
-          <a href="#home" class="nav-item opacity-80 hover:opacity-100 transition-opacity relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-current hover:after:w-full after:transition-all">Home</a>
-          <a href="#skills" class="nav-item opacity-80 hover:opacity-100 transition-opacity relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-current hover:after:w-full after:transition-all">Skills</a>
-          <a href="#project" class="nav-item opacity-80 hover:opacity-100 transition-opacity relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-current hover:after:w-full after:transition-all">Projects</a>
-        </div>
+<script src="src/script.js"></script>
 
-        <button id="hamburger" class="md:hidden focus:outline-none z-50 cursor-pointer">
-          <div class="w-6 h-0.5 bg-current mb-1.5 transition-all duration-300" id="line1"></div>
-          <div class="w-6 h-0.5 bg-current mb-1.5 transition-all duration-300" id="line2"></div>
-          <div class="w-6 h-0.5 bg-current transition-all duration-300" id="line3"></div>
-        </button>
-
-        <div id="navsm" class="fixed inset-0 bg-[#ffefb3]/95 dark:bg-[#013e37]/95 backdrop-blur-lg flex flex-col justify-center items-center gap-8 text-2xl font-mono font-bold transition-all duration-500 translate-x-full md:hidden">
-          <a href="#home" class="mobile-nav-item">Home</a>
-          <a href="#skills" class="mobile-nav-item">Skills</a>
-          <a href="#project" class="mobile-nav-item">Projects</a>
-        </div>
-      </nav>
-    </header>
-
-    <main class="overflow-x-hidden">
-      
-      <section id="home" class="min-h-screen flex flex-col md:flex-row justify-center items-center px-6 md:px-20 max-w-7xl mx-auto gap-12 pt-24 md:pt-0">
-        <div class="flex-1 flex flex-col justify-center">
-          <p class="text-xl md:text-2xl font-mono text-emerald-700 dark:text-emerald-400 min-h-[32px]" id="myName"></p>
-          <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight my-4" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="300">
-            Web Developer
-          </h1>
-          <p class="text-lg md:text-xl font-mono opacity-90">
-            Mahasiswa | <span id="subtitle" class="text-emerald-700 dark:text-emerald-400 font-bold"></span>
-          </p>
-          
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#" class="border-2 border-current px-5 py-2.5 font-mono text-sm font-bold uppercase tracking-wider hover:bg-[#013e37] hover:text-[#ffefb3] dark:hover:bg-[#ffefb3] dark:hover:text-[#013e37] transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500">Instagram</a>
-            <a href="#" class="border-2 border-current px-5 py-2.5 font-mono text-sm font-bold uppercase tracking-wider hover:bg-[#013e37] hover:text-[#ffefb3] dark:hover:bg-[#ffefb3] dark:hover:text-[#013e37] transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="600">Github</a>
-            <a href="#" class="border-2 border-current px-5 py-2.5 font-mono text-sm font-bold uppercase tracking-wider hover:bg-[#013e37] hover:text-[#ffefb3] dark:hover:bg-[#ffefb3] dark:hover:text-[#013e37] transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="700">LinkedIn</a>
-          </div>
-          <p class="mt-8 text-sm italic opacity-60 font-mono" id="quotes">"Building seamless digital experiences through elegant, maintainable code."</p>
-        </div>
-        
-        <div class="flex-1 flex justify-center items-center" data-aos="zoom-out" data-aos-duration="1200" data-aos-delay="400">
-          <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-600 to-[#013e37] p-2 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-            <img src="src/assets/johannes.png" alt="johannes" class="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500" />
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="min-h-screen py-24 px-6 max-w-7xl mx-auto flex flex-col justify-center">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold tracking-tight inline-block relative after:content-[''] after:absolute after:w-1/2 after:h-1 after:bottom-[-8px] after:left-1/4 after:bg-emerald-600">Tech Stack Matrix</h2>
-        </div>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="100">
-            <img src="src/assets/javascript.svg" alt="javascript" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">JavaScript</span>
-          </div>
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="200">
-            <img src="src/assets/TailwindCSS.png" alt="TailwindCSS" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">TailwindCSS</span>
-          </div>
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="300">
-            <img src="src/assets/Laravel.png" alt="Laravel" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">Laravel</span>
-          </div>
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="400">
-            <img src="src/assets/php.png" alt="php" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">PHP</span>
-          </div>
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="500">
-            <img src="src/assets/mysql.png" alt="mysql" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">MySQL</span>
-          </div>
-          <div class="skill-card p-6 bg-white/50 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-current/10 shadow-sm flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group" data-aos="fade-up" data-aos-delay="600">
-            <img src="src/assets/python.png" alt="python" class="w-16 h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
-            <span class="font-mono text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">Python</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="project" class="min-h-screen py-24 px-6 max-w-7xl mx-auto flex flex-col justify-center">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold tracking-tight inline-block relative after:content-[''] after:absolute after:w-1/2 after:h-1 afternoon:bottom-[-8px] after:left-1/4 after:bg-emerald-600">Selected Works</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white/40 dark:bg-black/10 border border-current/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col group" data-aos="fade-up">
-            <div class="relative overflow-hidden aspect-video bg-emerald-950">
-              <img src="src/assets/project1.png" alt="Project 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span class="text-[#ffefb3] font-mono text-xs uppercase tracking-wider">Web Application</span>
-              </div>
-            </div>
-            <div class="p-6 flex flex-col flex-grow justify-between">
-              <div>
-                <h3 class="text-xl font-bold mb-2">Coffee Shop Dashboard</h3>
-                <p class="text-sm opacity-70 mb-6 text-justify line-clamp-3">
-                  Sebuah platform client-server interaktif untuk manajemen inventaris, pemesanan, dan transaksi kasir secara real-time. Dibangun menggunakan Laravel terintegrasi penuh.
-                </p>
-              </div>
-              <a href="#" class="inline-flex items-center justify-center text-center bg-[#013e37] text-[#ffefb3] dark:bg-[#ffefb3] dark:text-[#013e37] font-mono text-xs font-bold uppercase tracking-wider py-3 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95">
-                Launch Site &rarr;
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </body>
+</body>
 </html>

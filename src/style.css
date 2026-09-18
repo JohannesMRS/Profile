@@ -1,58 +1,126 @@
-@import "tailwindcss";
-
-@layer base {
-  :root {
-    --primary: #ffefb3;
-    --secondary: #013e37;
+@import "tailwindcss";   
+  
+  :root{
+    --bg:#0a0b08;
+    --bg-raised:#121309;
+    --panel:#15160f;
+    --border:#2c2c1e;
+    --border-bright:#4a4a2e;
+    --amber:#ffb000;
+    --amber-dim:#8a6200;
+    --amber-glow: rgba(255,176,0,0.35);
+    --blue:#5aa9ff;
+    --text:#ece7d6;
+    --text-dim:#9a9483;
+    --text-faint:#615c4d;
+    --danger:#ff5f56;
+    --ok:#3ddc84;
   }
-
-  /* Deteksi class dark secara manual lewat javascript */
-  .dark {
-    --primary: #013e37;
-    --secondary: #ffefb3;
+  /* This design is a single deliberate "amber CRT terminal" theme.
+     It stays consistent across system light/dark preference,
+     the same way a physical terminal doesn't change with room lighting. */
+  @media (prefers-color-scheme: light){ :root{ --bg:#0a0b08; } }
+  :root[data-theme="light"]{ --bg:#0a0b08; }
+  :root[data-theme="dark"]{ --bg:#0a0b08; }
+ 
+  *{ box-sizing:border-box; }
+  html,body{ overflow-x:hidden; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    line-height:1.6;
   }
-
-  body {
-    color: var(--secondary);
-    background-color: var(--primary);
-    overflow-x: hidden;
+  .mono{ font-family:'JetBrains Mono', ui-monospace, monospace; }
+ 
+  /* subtle scanline + vignette, non-distracting */
+  .crt::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:40;
+    background:repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode:overlay;
   }
-
-  /* Menghilangkan Webkit Scrollbar */
-  body::-webkit-scrollbar {
-    display: none;
+  .crt::after{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:39;
+    background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
   }
-
-  * {
-    scroll-behavior: smooth;
+ 
+  .grid-bg{
+    background-image:
+      linear-gradient(rgba(255,176,0,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,176,0,0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 90%);
+    mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 90%);
   }
-}
-
-/* Glassmorphic Floating Navbar Effect */
-#navbar.scrolled {
-  background-color: var(--primary);
-  opacity: 0.9;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(1, 62, 55, 0.1);
-  backdrop-filter: blur(12px);
-  padding: 1rem 2rem;
-  border-radius: 9999px;
-  width: 90%;
-  max-width: 600px;
-  top: 15px;
-}
-
-.dark #navbar.scrolled {
-  border: 1px solid rgba(255, 239, 179, 0.1);
-}
-
-/* Animasi khusus hamburger menu */
-#hamburger.active #line1 {
-  transform: rotate(45deg) translate(5px, 6px);
-}
-#hamburger.active #line2 {
-  opacity: 0;
-}
-#hamburger.active #line3 {
-  transform: rotate(-45deg) translate(5px, -6px);
-}
+ 
+  .glow-text{ text-shadow: 0 0 18px var(--amber-glow), 0 0 2px var(--amber-glow); }
+ 
+  .cursor-blink{ animation: blink 1s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+ 
+  .window{
+    background:var(--panel);
+    border:1px solid var(--border);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 20px 60px -20px rgba(255,176,0,0.08);
+  }
+  .window-bar{
+    background:var(--bg-raised);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{ width:11px; height:11px; border-radius:9999px; display:inline-block; }
+ 
+  a{ color:var(--blue); text-decoration:none; }
+  a:hover{ text-decoration:underline; text-underline-offset:3px; }
+ 
+  ::selection{ background:var(--amber); color:#0a0b08; }
+ 
+  :focus-visible{
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+ 
+  .tree-btn{
+    width:100%; text-align:left;
+    border:1px solid transparent;
+    transition: border-color .15s ease, background-color .15s ease;
+  }
+  .tree-btn[aria-selected="true"]{
+    border-color: var(--border-bright);
+    background: rgba(255,176,0,0.06);
+  }
+  .tree-btn:hover{ background: rgba(255,176,0,0.05); }
+ 
+  .layer{
+    border:1px solid var(--border);
+    background:var(--bg-raised);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .layer:hover, .layer.is-active{
+    border-color: var(--amber-dim);
+    box-shadow: 0 0 30px -10px var(--amber-glow);
+    transform: translateY(-2px);
+  }
+ 
+  .type-caret::after{
+    content:"▌";
+    margin-left:2px;
+    color:var(--amber);
+    animation: blink 1s steps(1) infinite;
+  }
+ 
+  @media (prefers-reduced-motion: reduce){
+    .cursor-blink, .type-caret::after{ animation:none; opacity:1; }
+    .layer{ transition:none; }
+  }
+ 
+  .scrollbar-thin::-webkit-scrollbar{ width:8px; height:8px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb{ background:var(--border-bright); border-radius:0; }
+  .scrollbar-thin::-webkit-scrollbar-track{ background:transparent; }
