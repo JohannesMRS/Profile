@@ -22,7 +22,7 @@ const PROJECTS = [
   {
     title: 'Sistem Informasi Laundry Berkah',
     category: 'Web App',
-    screenshot: 'src/assets/Laundry/home.jpeg',
+    screenshot: 'assets/Laundry/home.jpeg',
     short: 'Digitizing the laundry ordering process',
     description: 'Sistem manajemen laundry berbasis web yang dikembangkan untuk Laundry Berkah, Amplas, Medan. Dirancang untuk mempermudah pengelolaan transaksi, pencatatan pesanan pelanggan, dan pemantauan status laundry guna meningkatkan efisiensi operasional bisnis.',
     problem: 'Customers located far away find it difficult to visit in person.',
@@ -37,7 +37,7 @@ const PROJECTS = [
   {
     title: 'Coming Soon',
     category: 'Stay tuned',
-    screenshot: 'src/assets/soon.jpg',
+    screenshot: 'assets/soon.jpg',
     short: '-',
     description: '...',
     problem: '...',
