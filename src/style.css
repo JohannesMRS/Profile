@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* =========================================================
-   1. TOKENS: variabel tema (dark default, light via data-theme)
-   ========================================================= */
+/* Tema warna */
 @layer base {
   :root {
     --bg: #1E1E1E;
@@ -38,9 +36,7 @@
     --glow: rgba(30, 160, 10, .08);
   }
 
-  /* =======================================================
-     2. BASE: elemen dasar
-     ======================================================= */
+  /* Elemen Dasar */
   html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem);
@@ -63,7 +59,7 @@
     outline-offset: 3px;
   }
 
-  /* Dialog: margin:auto agar modal tetap di tengah (reset Tailwind v4 menolkan margin) */
+  /* Dialog: margin:auto agar modal tetap di tengah */
   dialog {
     margin: auto;
     border: 1px solid var(--text);
@@ -84,12 +80,10 @@
   }
 }
 
-/* =========================================================
-   3. COMPONENTS: di dalam layer agar bisa dikalahkan utilitas Tailwind
-   ========================================================= */
+/* komponen di dalam layer agar bisa dikalahkan utilitas Tailwind */
 @layer components {
 
-  /* --- Tipografi & warna --- */
+  /*  Tipografi & warna  */
   .f-head { font-family: var(--f-head); }
   .f-fira { font-family: var(--f-fira); }
   .f-jb   { font-family: var(--f-jb); }
@@ -107,7 +101,7 @@
   .ph { outline: 1px dashed var(--accent-ink); outline-offset: 2px; }
   .blink { animation: blink 1.1s steps(2) infinite; }
 
-  /* --- Background grid + cahaya kursor --- */
+  /*  Background grid + cahaya kursor  */
   .grid-bg, .grid-lit {
     position: fixed;
     inset: 0;
@@ -134,7 +128,7 @@
   }
   .grid-lit.on { opacity: 1; }
 
-  /* --- Tombol --- */
+  /*  Tombol  */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -155,7 +149,7 @@
   .btn-primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
   .btn-primary:hover { box-shadow: 4px 4px 0 var(--text); }
 
-  /* --- Navigasi --- */
+  /*  Navigasi  */
   .nav-link {
     font-family: var(--f-fira);
     font-size: .8rem;
@@ -169,7 +163,7 @@
   .nav-link[aria-current=true] { color: var(--text); border-bottom-color: var(--accent); }
   .nav-link[aria-current=true]::before { content: '> '; color: var(--accent-ink); }
 
-  /* --- Section, kartu, tag --- */
+  /*  Section, kartu, tag  */
   .sec {
     padding: 5.5rem 0;
     scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 5rem);
@@ -203,7 +197,7 @@
     background: var(--bg);
   }
 
-  /* --- Dialog detail --- */
+  /*  Dialog detail  */
   .dl h4 {
     font-family: var(--f-fira);
     font-size: .75rem;
@@ -213,14 +207,12 @@
     margin: 1.4rem 0 .4rem;
   }
 
-  /* --- Scroll reveal --- */
+  /*  Scroll reveal  */
   .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
   .js .reveal.in { opacity: 1; transform: none; }
 }
 
-/* =========================================================
-   4. Di luar layer: media query & keyframes
-   ========================================================= */
+/* Media Query */
 @keyframes blink { 50% { opacity: 0; } }
 
 /* Perangkat sentuh: matikan cahaya kursor */
