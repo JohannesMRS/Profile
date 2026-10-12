@@ -38,16 +38,16 @@ const PROJECTS = [
   },
   {
     title: 'Point Of Sales',
-    category: 'Stay tuned',
+    category: 'POS',
     screenshot: 'assets/POS/kasir.png',
-    short: '-',
-    description: '...',
-    problem: '...',
-    solution: '...',
-    features: ['...', '...'],
+    short: 'Web-based POS application',
+    description: 'The POS System is a web-based cashier application designed to help businesses efficiently manage sales transactions, product inventory, and financial reports. The system features an innovative interface that streamlines the transaction process, tracks stock availability, and generates structured, easy-to-interpret sales reports.',
+    problem: 'Transaction recording is still manual and prone to loss.',
+    solution: 'creating an application that includes transaction and financial record-keeping capabilities',
+    features: ['Point of Sale', 'Product Management', 'Inventory Management', 'Transaction History'],
     tech: ['Laravel', 'Laravel Reverb', 'Inertia.js',  'TailwindCSS', 'JavaScript', 'Oracle'],
-    challenges: '...',
-    contribution: '...',
+    challenges: '-',
+    contribution: 'Designing database structures, developing controllers, and implementing database queries using ORM to support data management and application business workflows.',
     repo: '',
     live: ''
   },
@@ -145,7 +145,7 @@ function lighting(){
   x=e.clientX;y=e.clientY;lit.classList.add('on');if(!queued){queued=true;requestAnimationFrame(paint)}
  },
  {passive:true});
- 
+
  document.addEventListener('pointerleave',()=>lit.classList.remove('on'));
 }
 
