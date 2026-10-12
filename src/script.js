@@ -35,7 +35,22 @@ const PROJECTS = [
     live: ''
   },
   {
-    title: 'Coming Soon',
+    title: 'Point Of Sales',
+    category: 'Stay tuned',
+    screenshot: 'assets/POS/kasir.png',
+    short: '-',
+    description: '...',
+    problem: '...',
+    solution: '...',
+    features: ['...', '...'],
+    tech: ['Laravel', 'Laravel Reverb', 'Inertia.js',  'TailwindCSS', 'JavaScript', 'Oracle'],
+    challenges: '...',
+    contribution: '...',
+    repo: '',
+    live: ''
+  },
+  {
+    title: 'Coming soon',
     category: 'Stay tuned',
     screenshot: 'assets/soon.jpg',
     short: '-',
