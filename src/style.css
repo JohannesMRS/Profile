@@ -98,7 +98,11 @@
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .ph { outline: 1px dashed var(--accent-ink); outline-offset: 2px; }
+  .ph { 
+    /* outline: 1px dashed var(--accent-ink);  */
+    /* outline-offset: 2px;  */
+    font-size: 18px;
+  }
   .blink { animation: blink 1.1s steps(2) infinite; }
 
   /*  Background grid + cahaya kursor  */

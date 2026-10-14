@@ -14,8 +14,8 @@ const SKILLS=[
 
 const STACK=[
  {category:'Frontend',items:[{name:'HTML5',note:'Markup'},{name:'CSS3',note:'Styling'},{name:'Tailwind CSS',note:'Utility styles'},{name:'JavaScript',note:'Behavior'}]},
- {category:'Backend',items:[{name:'Node.js',note:'Runtime'},{name:'PHP',note:'Server'}]},
- {category:'Database',items:[{name:'MySQL',note:'Relational'},{name:'PostgreSQL',note:'Relational'}]},
+ {category:'Backend',items:[ { name:'Node.js',note:'Runtime' }, {name:'PHP',note:'Server'}, {name: 'Go', note:'Server'}]},
+ {category:'Database',items:[{name:'MySQL',note:'Relational'},{name:'PostgreSQL',note:'Relational'}, {name: 'Oracle', note:'Relational'}, {name: 'MongoDB', note: 'No Relational'}]},
  {category:'Tools',items:[{name:'Git',note:'Version control'},{name:'VS Code',note:'Editor'},{name:'Figma',note:'Design'}]}
 ];
 
@@ -59,7 +59,7 @@ const PROJECTS = [
     description: 'This landing page serves as a promotional platform and product catalog for products created by students of the Medan State Polytechnic. It showcases a variety of products registered through the Business Development platform, making it easy for potential customers to discover student-made products in a single location. The platform employs a business model based on renting digital storefronts to sellers via a monthly subscription fee. Project development focuses on presenting product information in an engaging manner, ensuring intuitive navigation, and providing a responsive design to support digital marketing and foster the growth of student businesses.',
     problem: 'Many students struggle to promote the products or services they are working on.',
     solution: 'Marketing and promoting their products or services through digital platforms such as this website',
-    features: ['Manajemen seller', 'Manajemen produk dan jasa', 'Pencarian produk dan jasa', 'Katalog produk dan jasa', 'Profil seller', 'Detail produk dan jasa'],
+    features: ['Seller management', 'Product and service management', 'Product and service search', 'Product and service catalog', 'Seller profile', 'Product and service details'],
     tech: ['Laravel', 'TailwindCSS', 'JavaScript', 'PostgreSQL', 'Localization'],
     challenges: 'The website does not support an integrated payment system, as payments are handled via WhatsApp directly with each seller.',
     contribution: 'Designing database structures, developing controllers, and implementing database queries using ORM to support data management and application business workflows, as well as creating AI agent prompts for the frontend.',
