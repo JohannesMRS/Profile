@@ -211,10 +211,88 @@
     margin: 1.4rem 0 .4rem;
   }
 
+    /* Timeline (Organisasi) */
+  .tl { border-left: 1px solid var(--border); margin-left: .5rem; }
+  .tl-item { position: relative; padding: 0 0 2.5rem 1.75rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -5px;
+    top: .4rem;
+    width: 9px;
+    height: 9px;
+    background: var(--accent-ink);
+  }
+
+    /* Thumbnail foto (organisasi & achievement) */
+  .tl-grid { display: grid; gap: 1.25rem; }
+  @media (min-width: 768px) {
+    .tl-grid:has(> .thumb) {
+      grid-template-columns: minmax(0, 260px) 1fr;
+      align-items: start;
+    }
+  }
+  .thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: zoom-in;
+    transition: transform .2s, border-color .2s, box-shadow .2s;
+  }
+  .thumb:hover { transform: translate(-3px, -3px); border-color: var(--text); box-shadow: 5px 5px 0 var(--accent); }
+  .thumb .shot { border-bottom: 0; }
+  .thumb-count {
+    position: absolute;
+    left: .5rem;
+    bottom: .5rem;
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  /* Carousel galeri */
+  .car-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-slide { flex: 0 0 100%; margin: 0; scroll-snap-align: center; }
+  .car-slide img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 70dvh;
+    object-fit: contain;
+    background: var(--bg);
+  }
+  .car-slide figcaption { padding: .75rem 1.25rem; font-size: .875rem; color: var(--muted); }
+  .car-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    padding: .6rem 1rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .car-dot { width: 28px; height: 28px; display: grid; place-items: center; background: none; border: 0; cursor: pointer; }
+  .car-dot::after { content: ''; width: 10px; height: 10px; border: 1px solid var(--text); }
+  .car-dot[aria-current=true]::after { background: var(--accent); border-color: var(--accent); }
+  .btn[disabled] { opacity: .35; cursor: default; }
+  .btn[disabled]:hover { transform: none; box-shadow: none; }
+
   /*  Scroll reveal  */
   .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
   .js .reveal.in { opacity: 1; transform: none; }
 }
+
+
 
 /* Media Query */
 @keyframes blink { 50% { opacity: 0; } }

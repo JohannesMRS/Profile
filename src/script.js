@@ -30,11 +30,11 @@ const PROJECTS = [
     category: 'Web App',
     screenshot: 'assets/Laundry/home.jpeg',
     short: 'Digitizing the laundry ordering process',
-    description: 'Sistem manajemen laundry berbasis web yang dikembangkan untuk Laundry Berkah, Amplas, Medan. Dirancang untuk mempermudah pengelolaan transaksi, pencatatan pesanan pelanggan, dan pemantauan status laundry guna meningkatkan efisiensi operasional bisnis.',
+    description: 'A web-based laundry management system developed for Laundry Berkah in Amplas, Medan. It is designed to streamline transaction management, the recording of customer orders, and the monitoring of laundry status, with the goal of enhancing operational business efficiency.',
     problem: 'Customers located far away find it difficult to visit in person.',
     solution: 'Developing a system with tracking and payment features.',
     features: ['Automatic calculation based on laundry weight', 'Location tracking', 'Shipmen tracking'],
-    tech: ['Laravel', 'Tailwind CSS', 'JavaScript', 'PostgreSQL'],
+    tech: ['Laravel', 'Tailwind CSS', 'JavaScript', 'PostgreSQL', 'Leaflet', 'Google Maps'],
     challenges: '-',
     contribution: 'Setting up the database, building business logic, and creating relationships between models.',
     repo: 'https://github.com/JohannesMRS/pkm-amplas',
@@ -73,6 +73,93 @@ const PROJECTS = [
 
 ];
 
+const ORGANIZATIONS=[
+ {
+  name:'HMPS Manajemen Informatika',
+  role:'Internal Division Member',
+  period:'2024 – 2025',
+  description:'The internal division is responsible for activities aimed at strengthening bonds among students, and it serves as a communication bridge between the study program and the students—and vice versa.',
+  // points:['Kontribusi atau tanggung jawab pertama'],
+  images:[
+   {src:'assets/organization/2024.jpeg',alt:'INTERNAL DIVISION'},
+   {src:'assets/organization/2024(2).JPG',alt:'Grand Deliberation'},
+   {src:'assets/organization/2024(3).jpg',alt:'MI Goes To School (Introduction to Information Management at SMKN 16 Medan)'},
+   {src:'assets/organization/2024(4).jpg',alt:'Mi Care & Share (Visiting an orphanage)'},
+  ],
+  imageAlt:'Internal division 2024-2025'
+ },
+ {
+  name:'HMPS Manajemen Informatika',
+  role:'Head of Internal Division',
+  period:'2025 – 2026',
+  description:'The internal division is responsible for activities aimed at strengthening bonds among students, and it serves as a communication bridge between the study program and the students—and vice versa.',
+  points:[],
+  images:[
+    {src:'assets/organization/2025(2).JPG',alt:'INTERNAL DIVISION'},
+    {src:'assets/organization/2025(3).jpg',alt:'CONVERGENCE CABINET'},
+    {src:'assets/organization/2025(4).JPG',alt:'MI Kindess Day (Visiting an orphanage)'},
+
+  ],
+  imageAlt:'Internal Division 2025-2026'
+ }
+];
+
+const ACHIEVEMENTS=[
+ {
+  title:'Python Certificate',
+  issuer:'Dicoding Indonesia',
+  year:'2026',
+  // level:'Nasional',
+  description:'Completed the Python programming course on Dicoding to gain an understanding of programming fundamentals, the use of variables, control structures, functions, and data processing using Python.',
+  images:[
+    {src:'assets/achievements/python/python.jpg'},
+    {src:'assets/achievements/python/python(2).jpg'},
+    {src:'assets/achievements/python/python(3).jpg'},
+  ],
+  imageAlt:'Python certificate from dicoding indonesia',
+  link:'',
+  linkLabel:'View certificate'
+
+ },
+ {
+  title:'AI Fundamentals Certificate',
+  issuer:'Dicoding Indonesia',
+  year:'2025',
+  level:'',
+  description:'Successfully completed the AI Fundamentals course at Dicoding, gaining foundational knowledge of artificial intelligence concepts, real-world applications, and the role of AI in modern technology development.',
+  images:[
+    {src:'assets/achievements/fundamental_ai/fundamental_ai.jpg'},
+    {src:'assets/achievements/fundamental_ai/fundamental_ai(2).jpg'},
+  ],
+  imageAlt:'Fundamental of ai from dicoding indonesia',
+  link:''
+ },
+ {
+  title:'Machine Learning Certificate',
+  issuer:'Google Developer Group on Campus USU',
+  year:'2025',
+  level:'',
+  description:'Gained foundational knowledge of machine learning concepts and their applications in developing data-driven solutions through a learning program organized by Google Developer Groups (GDG).',
+  images:[
+    {src:'assets/achievements/gdg/MLgdg/ml.jpg'},
+  ],
+  imageAlt:'Machine learning from gdg',
+  link:''
+ },
+ {
+  title:'Web Development Certificate',
+  issuer:'Google Developer Group on Campus USU',
+  year:'2025',
+  level:'',
+  description:'Gained knowledge of web development concepts, web technologies, and development practices for building functional web applications through a learning program organized by Google Developer Groups (GDG).',
+  images:[
+    {src:'assets/achievements/gdg/webgdg/web.jpg'},
+  ],
+  imageAlt:'Web development from gdg',
+  link:''
+ }
+];
+
 const ABOUT=[
  {t:'Biography',p:'My name is Johannes Mario Rafael Sibarani. I was born in Pematang Siantar on August 8, 2006, and I currently live in Medan.'},
  {t:'Development interests',p:'For now, I am interested in web and mobile app development.'},
@@ -87,6 +174,8 @@ const tags=a=>a.map(t=>`<li class="tag">${esc(t)}</li>`).join('');
 const placeholderShot=(label)=>'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"><rect width="1600" height="1000" fill="#262626"/><g stroke="#3A3A3A" stroke-width="2">${Array.from({length:15},(_,i)=>`<path d="M${i*110} 0V1000M0 ${i*70}H1600"/>`).join('')}</g><rect x="60" y="60" width="1480" height="60" fill="#1E1E1E" stroke="#3A3A3A" stroke-width="2"/><rect x="520" y="400" width="560" height="200" fill="none" stroke="#39FF14" stroke-width="3" stroke-dasharray="14 10"/><text x="800" y="490" fill="#F3F4F6" font-family="monospace" font-size="34" text-anchor="middle">SCREENSHOT PLACEHOLDER</text><text x="800" y="545" fill="#A3A3A3" font-family="monospace" font-size="28" text-anchor="middle">${esc(label)}</text></svg>`);
 const shotSrc=p=>p.screenshot||placeholderShot(p.title);
 const imgFallback=(img,p)=>{img.onerror=()=>{img.onerror=null;img.src=placeholderShot(p.title)}};
+const getImages=o=>o.images?.length?o.images:(o.image?[{src:o.image,alt:o.imageAlt||''}]:[]);
+const thumbHTML=(type,i,title,imgs)=>imgs.length?`<button type="button" class="thumb" data-gallery="${type}" data-i="${i}" aria-label="Buka galeri foto ${esc(title)} (${imgs.length} foto)"><img class="shot" src="${esc(imgs[0].src)}" width="1600" height="1000" loading="lazy" decoding="async" alt="">${imgs.length>1?`<span class="tag thumb-count" aria-hidden="true">${imgs.length} foto</span>`:''}</button>`:'';
 
 // Render
 function render(){
@@ -96,6 +185,10 @@ function render(){
  $$('#project-grid img').forEach((im,i)=>imgFallback(im,PROJECTS[i]));
  $('#about-grid').innerHTML=ABOUT.map(a=>`<article class="card p-6"><h3 class="f-fira text-sm ink">${esc(a.t)}</h3><p class="mt-2 muted">${esc(a.p)}</p></article>`).join('');
  $('#contact-links').innerHTML=CONTACT.filter(c=>c.href).map(c=>`<li><a class="underline underline-offset-4" href="${esc(c.href)}"${c.href.startsWith('http')?' target="_blank" rel="noopener noreferrer"':''}>${esc(c.text||c.label)}<span class="sr-only">${c.href.startsWith('http')?' (opens in new tab)':''}</span></a></li>`).join('');
+ $('#org-list').innerHTML=ORGANIZATIONS.map((o,i)=>`<li class="tl-item"><span class="tl-dot" aria-hidden="true"></span><div class="tl-grid">${thumbHTML('org',i,o.name,getImages(o))}<div><p class="f-jb text-xs ink">${esc(o.period)}</p><h3 class="text-xl font-bold mt-1">${esc(o.name)}</h3><p class="f-fira text-sm muted mt-1">${esc(o.role)}</p><p class="muted mt-3">${esc(o.description)}</p>${o.points?.length?`<ul class="list-disc pl-5 mt-3 space-y-1 text-sm muted">${o.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div></div></li>`).join('');
+ $('#achv-grid').innerHTML=ACHIEVEMENTS.map((a,i)=>`<article class="card flex flex-col overflow-hidden">${thumbHTML('achv',i,a.title,getImages(a))}<div class="p-6 flex flex-col flex-1"><div class="flex items-center justify-between gap-3"><p class="f-jb text-xs ink">${esc(a.year)}</p>${a.level?`<span class="tag">${esc(a.level)}</span>`:''}</div><h3 class="text-xl font-bold mt-3">${esc(a.title)}</h3><p class="f-fira text-xs muted mt-1">${esc(a.issuer)}</p><p class="muted text-sm mt-3 flex-1">${esc(a.description)}</p>${a.link?`<a class="btn mt-5 self-start" href="${esc(a.link)}" target="_blank" rel="noopener noreferrer">${esc(a.linkLabel||'View certificate')} ↗<span class="sr-only"> (opens in new tab)</span></a>`:''}</div></article>`).join('');
+ // Thumbnail gagal dimuat -> hapus tombolnya (layout menyesuaikan)
+ $$('.thumb img').forEach(im=>{im.onerror=()=>im.closest('.thumb')?.remove()});
  $('#year').textContent=new Date().getFullYear();
 }
 
@@ -109,7 +202,7 @@ function setMenu(open){mNav.classList.toggle('hidden',!open);mNav.classList.togg
 mBtn.addEventListener('click',()=>setMenu(mBtn.getAttribute('aria-expanded')!=='true'));
 mNav.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mBtn.getAttribute('aria-expanded')==='true'){setMenu(false);mBtn.focus()}});
-matchMedia('(min-width:768px)').addEventListener('change',e=>{if(e.matches)setMenu(false)});
+matchMedia('(min-width:1024px)').addEventListener('change',e=>{if(e.matches)setMenu(false)});
 
 // Action section + reveal
 function observe(){
@@ -184,6 +277,58 @@ dlg.addEventListener('click',e=>{
 dlg.addEventListener('close',()=>{
   document.documentElement.style.overflow='';opener&&opener.focus()
 });
+
+// Gallery (carousel foto)
+const gal=$('#gallery');let galOpener=null;
+
+function galleryHTML(title,imgs){
+ const many=imgs.length>1;
+ return `<div class="sticky top-0 z-10 flex items-center justify-between gap-4 px-5 py-3 border-b bd" style="background:var(--surface)"><p id="gal-title" class="f-fira text-xs ink">${esc(title)}</p><button type="button" class="btn py-1" id="gal-close">Close ✕</button></div>
+ <div role="group" aria-roledescription="carousel" aria-label="Galeri foto ${esc(title)}">
+  <div class="car-track" id="car-track" tabindex="0" aria-label="Geser untuk melihat foto lain">
+   ${imgs.map((s,i)=>`<figure class="car-slide" role="group" aria-roledescription="slide" aria-label="${i+1} dari ${imgs.length}"><img src="${esc(s.src)}" width="1600" height="1000" alt="${esc(s.alt||title)}" ${i?'loading="lazy"':''}>${s.alt?`<figcaption>${esc(s.alt)}</figcaption>`:''}</figure>`).join('')}
+  </div>
+  ${many?`<div class="car-bar"><button type="button" class="btn !px-3" id="car-prev" aria-label="Foto sebelumnya">←</button><div class="flex items-center gap-3"><div class="flex" id="car-dots">${imgs.map((_,i)=>`<button type="button" class="car-dot" data-go="${i}" aria-label="Ke foto ${i+1}"></button>`).join('')}</div><span class="f-jb text-xs muted" id="car-count" aria-live="polite"></span></div><button type="button" class="btn !px-3" id="car-next" aria-label="Foto berikutnya">→</button></div>`:''}
+ </div>`;
+}
+
+function initGallery(title,imgs){
+ const track=$('#car-track'),n=imgs.length;
+ $$('.car-slide img',track).forEach(im=>{im.onerror=()=>{im.onerror=null;im.src=placeholderShot(title)}});
+ if(n<2)return;
+ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ const dots=$$('.car-dot'),prev=$('#car-prev'),next=$('#car-next'),count=$('#car-count');
+ let idx=0,queued=false;
+ const go=i=>{i=Math.max(0,Math.min(n-1,i));track.scrollTo({left:i*track.clientWidth,behavior:reduce?'auto':'smooth'})};
+ const sync=()=>{queued=false;idx=Math.round(track.scrollLeft/track.clientWidth);
+  dots.forEach((d,i)=>i===idx?d.setAttribute('aria-current','true'):d.removeAttribute('aria-current'));
+  prev.disabled=idx===0;next.disabled=idx===n-1;count.textContent=`${idx+1} / ${n}`};
+ track.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(sync)}},{passive:true});
+ prev.addEventListener('click',()=>go(idx-1));
+ next.addEventListener('click',()=>go(idx+1));
+ dots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.go)));
+ gal.onkeydown=e=>{
+  if(e.key==='ArrowRight'){e.preventDefault();go(idx+1)}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1)}
+ };
+ sync();
+}
+
+function openGallery(title,imgs,trigger){
+ galOpener=trigger;
+ $('#gallery-body').innerHTML=galleryHTML(title,imgs);
+ gal.setAttribute('aria-labelledby','gal-title');
+ gal.showModal();
+ document.documentElement.style.overflow='hidden';
+ initGallery(title,imgs);   // dipindah ke sini, setelah showModal()
+}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button[data-gallery]');if(!b)return;
+ const item=(b.dataset.gallery==='org'?ORGANIZATIONS:ACHIEVEMENTS)[+b.dataset.i];
+ openGallery(item.name||item.title,getImages(item),b);
+});
+gal.addEventListener('click',e=>{if(e.target===gal||e.target.closest('#gal-close'))gal.close()});
+gal.addEventListener('close',()=>{document.documentElement.style.overflow='';galOpener&&galOpener.focus()});
 
 render();
 applyThemeUI();
