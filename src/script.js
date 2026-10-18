@@ -1,3 +1,7 @@
+// Initialize Vercel Analytics
+import { inject } from '@vercel/analytics';
+inject();
+
 const CONTACT=[
  {label:'GitHub',href:'https://github.com/JohannesMRS'},   
  {label:'LinkedIn',href:'https://www.linkedin.com/in/jmrs-/?isSelfProfile=false'}, 
