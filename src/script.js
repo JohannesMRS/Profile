@@ -167,6 +167,12 @@ const ABOUT=[
  {t:'Professional goals',p:'In the future, I want to become a backend developer.'}
 ];
 
+const ABOUT_PHOTO={
+ src:'assets/jo-pixel(2).jpeg',
+ alt:'Foto Johannes Mario Rafael Sibarani',
+ caption:'JMRS · Medan, Indonesia'
+};
+
 // Helper
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -183,7 +189,9 @@ function render(){
  $('#stack-grid').innerHTML=STACK.map(g=>`<div><h3 class="f-fira text-sm ink mb-3">/ ${esc(g.category)}</h3><ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px border bd" style="background:var(--border)">${g.items.map(t=>`<li class="p-4" style="background:var(--surface)"><p class="f-head font-medium">${esc(t.name)}</p><p class="f-jb text-xs muted">${esc(t.note)}</p></li>`).join('')}</ul></div>`).join('');
  $('#project-grid').innerHTML=PROJECTS.map((p,i)=>`<article class="card pcard flex flex-col"><img class="shot" src="${esc(shotSrc(p))}" width="1600" height="1000" ${i?'loading="lazy"':''} decoding="async" alt="Screenshot of ${esc(p.title)}, a ${esc(p.category.toLowerCase())} project"><div class="p-5 flex flex-col flex-1"><p class="f-fira text-xs ink">${String(i+1).padStart(2,'0')} · ${esc(p.category)}</p><h3 class="text-xl font-bold mt-1">${esc(p.title)}</h3><p class="muted text-sm mt-2 flex-1">${esc(p.short)}</p><ul class="flex flex-wrap gap-2 mt-4">${tags(p.tech)}</ul><button type="button" class="btn mt-5 self-start" data-i="${i}" aria-label="View details: ${esc(p.title)}">View details →</button></div></article>`).join('');
  $$('#project-grid img').forEach((im,i)=>imgFallback(im,PROJECTS[i]));
- $('#about-grid').innerHTML=ABOUT.map(a=>`<article class="card p-6"><h3 class="f-fira text-sm ink">${esc(a.t)}</h3><p class="mt-2 muted">${esc(a.p)}</p></article>`).join('');
+  const aboutPhoto=ABOUT_PHOTO?.src?`<figure class="about-photo"><div class="about-frame"><img src="${esc(ABOUT_PHOTO.src)}" width="800" height="1000" loading="lazy" decoding="async" alt="${esc(ABOUT_PHOTO.alt||'')}"></div>${ABOUT_PHOTO.caption?`<figcaption class="f-jb text-xs muted"><span class="ink">&gt;</span> ${esc(ABOUT_PHOTO.caption)}</figcaption>`:''}</figure>`:'';
+ $('#about-wrap').innerHTML=aboutPhoto+`<div class="grid gap-4">${ABOUT.map((a,i)=>`<article class="card p-6"><h3 class="f-fira text-sm ink">${esc(a.t)}</h3><p class="mt-2 muted${i===0?' text-lg':''}">${esc(a.p)}</p></article>`).join('')}</div>`;
+ $('.about-photo img')?.addEventListener('error',e=>e.target.closest('.about-photo').remove());
  $('#contact-links').innerHTML=CONTACT.filter(c=>c.href).map(c=>`<li><a class="underline underline-offset-4" href="${esc(c.href)}"${c.href.startsWith('http')?' target="_blank" rel="noopener noreferrer"':''}>${esc(c.text||c.label)}<span class="sr-only">${c.href.startsWith('http')?' (opens in new tab)':''}</span></a></li>`).join('');
  $('#org-list').innerHTML=ORGANIZATIONS.map((o,i)=>`<li class="tl-item"><span class="tl-dot" aria-hidden="true"></span><div class="tl-grid">${thumbHTML('org',i,o.name,getImages(o))}<div><p class="f-jb text-xs ink">${esc(o.period)}</p><h3 class="text-xl font-bold mt-1">${esc(o.name)}</h3><p class="f-fira text-sm muted mt-1">${esc(o.role)}</p><p class="muted mt-3">${esc(o.description)}</p>${o.points?.length?`<ul class="list-disc pl-5 mt-3 space-y-1 text-sm muted">${o.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}</div></div></li>`).join('');
  $('#achv-grid').innerHTML=ACHIEVEMENTS.map((a,i)=>`<article class="card flex flex-col overflow-hidden">${thumbHTML('achv',i,a.title,getImages(a))}<div class="p-6 flex flex-col flex-1"><div class="flex items-center justify-between gap-3"><p class="f-jb text-xs ink">${esc(a.year)}</p>${a.level?`<span class="tag">${esc(a.level)}</span>`:''}</div><h3 class="text-xl font-bold mt-3">${esc(a.title)}</h3><p class="f-fira text-xs muted mt-1">${esc(a.issuer)}</p><p class="muted text-sm mt-3 flex-1">${esc(a.description)}</p>${a.link?`<a class="btn mt-5 self-start" href="${esc(a.link)}" target="_blank" rel="noopener noreferrer">${esc(a.linkLabel||'View certificate')} ↗<span class="sr-only"> (opens in new tab)</span></a>`:''}</div></article>`).join('');

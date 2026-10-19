@@ -287,6 +287,43 @@
   .btn[disabled] { opacity: .35; cursor: default; }
   .btn[disabled]:hover { transform: none; box-shadow: none; }
 
+    /* About: foto + teks */
+  .about-wrap { display: grid; gap: 2rem; }
+  @media (min-width: 900px) {
+    .about-wrap:has(> .about-photo) {
+      grid-template-columns: minmax(0, 340px) 1fr;
+      align-items: start;
+    }
+    .about-photo { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 6rem); }
+  }
+  .about-photo { margin: 0; max-width: 340px; }
+
+  .about-frame {
+    border: 1px solid var(--text);
+    background: var(--surface);
+    box-shadow: 0 0 0 var(--accent);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .about-photo:hover .about-frame {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--accent);
+  }
+
+  .about-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    /* transition: filter .7s; */
+  }
+/* 
+  .about-photo:hover .about-frame img{
+    filter: grayscale(100%);
+  } */
+  
+  .about-photo figcaption { margin-top: 1.5rem; }
+
   /*  Scroll reveal  */
   .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s; }
   .js .reveal.in { opacity: 1; transform: none; }
